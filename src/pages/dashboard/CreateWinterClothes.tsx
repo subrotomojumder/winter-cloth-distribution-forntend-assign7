@@ -33,11 +33,13 @@ const CreateWinterClothes = () => {
       category: "",
       des: "",
       image: "",
+      price: "",
       size: [],
       sizeInput: "",
     },
   });
   const onSubmit = async (values: TClothe) => {
+    console.log(values);
     values.size = values.sizeInput?.split(",");
     delete values.sizeInput;
     const toastId = toast.loading("loading....");
@@ -102,6 +104,19 @@ const CreateWinterClothes = () => {
                     </SelectContent>
                     <FormMessage className="font-normal -pb-4" />
                   </Select>
+                </FormItem>
+              )}
+            />
+            <FormField
+              name="price"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-gray-600">Price</FormLabel>
+                  <FormControl>
+                    <Input placeholder="" {...field} type="number" />
+                  </FormControl>
+                  <FormMessage className="font-normal -pb-4" />
                 </FormItem>
               )}
             />

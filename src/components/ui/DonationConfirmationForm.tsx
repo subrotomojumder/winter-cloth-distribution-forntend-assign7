@@ -5,9 +5,16 @@ import { TClothe } from "@/types/clothes.type";
 import { LoadingPoints } from "./Loaders";
 import ErrorComponent from "./ErrorComponent";
 import { useGetSingleUserQuery } from "@/redux/features/auth/authApi";
-import { Form, FormControl, FormField, FormItem, FormLabel } from "./form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./form";
 import { Button } from "./button";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
@@ -20,8 +27,10 @@ import {
 } from "./select";
 import { useCreateDonationMutation } from "@/redux/features/donation/donationApi";
 import { toast } from "sonner";
+import { Input } from "./input";
 const FormSchema = z.object({
   size: z.string().optional(),
+  userImage: z.string(),
 });
 const DonationConfirmationForm = ({
   clothe,
@@ -37,12 +46,14 @@ const DonationConfirmationForm = ({
     useCreateDonationMutation();
   const navigate = useNavigate();
 
-  const onSubmit = async () => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       await createDonation({
         clotheId: clothe._id,
         clotheTitle: clothe.title,
         userId: id,
+        price: Number(clothe.price),
+        ...data,
       }).unwrap();
       navigate("/dashboard");
     } catch (error: any) {
@@ -68,7 +79,7 @@ const DonationConfirmationForm = ({
           className="w-full space-y-5 mt-2"
         >
           <div className="font-semibold text-gray-600 grid grid-cols-3">
-            <span>Clothe:</span>
+            <span  className="text-sm text-gray-900">Clothe :</span>
             <p className="col-span-2">{clothe.title}</p>
           </div>
           {clothe.size ? (
@@ -78,7 +89,7 @@ const DonationConfirmationForm = ({
                 name="size"
                 render={({ field }) => (
                   <FormItem className="grid grid-cols-3 items-center gap-1">
-                    <FormLabel>Size: </FormLabel>
+                    <FormLabel>Size : </FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -107,13 +118,29 @@ const DonationConfirmationForm = ({
             <></>
           )}
           <div className="font-semibold text-gray-700 grid grid-cols-3">
-            <span>Donor:</span>
+            <span className="text-sm text-gray-900">Donor :</span>
             <p className="col-span-2">{name}</p>
           </div>
           <div className="font-semibold text-gray-700 grid grid-cols-3">
-            <span>Email:</span>
+            <span className="text-sm text-gray-900">Email :</span>
             <p className="col-span-2">{email}</p>
           </div>
+          <FormField
+            name="userImage"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem className="grid grid-cols-3 items-center gap-1">
+                <FormLabel >Your Image URL :</FormLabel>
+                <FormControl className="col-span-2">
+                  <Input
+                    placeholder="https://cdn.pixabay.com/photo/2015/rose-729509_640.jpg"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage className="font-normal -pb-4" />
+              </FormItem>
+            )}
+          />
           <div className="text-center">
             <Button type="submit" disabled={createLoading}>
               Confirm Donation

@@ -4,6 +4,7 @@ import DashboardLayout from "@/components/layouts/DashboardLayout";
 import AllWinterClothes from "@/pages/AllWinterClothes";
 import ClothesDetails from "@/pages/ClothesDetails";
 import Home from "@/pages/Home";
+import LeaderBoard from "@/pages/LeaderBoard";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import CreateWinterClothes from "@/pages/dashboard/CreateWinterClothes";
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <Home />,
+      },
+      {
+        path: "leaderboard",
+        element: <LeaderBoard />,
       },
       {
         path: "winter-clothes",

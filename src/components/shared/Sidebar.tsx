@@ -1,7 +1,6 @@
 import {
   AlignRight,
   BadgePlus,
-  BarcodeIcon,
   Home,
   LayoutDashboard,
   LayoutList,
@@ -92,7 +91,7 @@ const Sidebar = ({
             ))}
             <button
               onClick={() => dispatch(toggleDarkTheme())}
-              className="py-1.5 w-full flex flex-nowrap space-x-3 px-2 md:px-2"
+              className="py-1.5 w-full flex flex-nowrap space-x-3 px-2 md:px-2 overflow-hidden whitespace-pre"
             >
               {darkTheme ? <Sun size={22} /> : <Moon size={22} />}
               <span
@@ -101,7 +100,7 @@ const Sidebar = ({
                   "block md:hidden": !openDrawer,
                 })}
               >
-                Mode
+              Toggle Theme
               </span>
             </button>
           </div>

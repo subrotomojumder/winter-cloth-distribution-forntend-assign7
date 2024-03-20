@@ -46,6 +46,9 @@ const ClothesDetails = () => {
             <p className="text-xl lg:text-2xl font-medium text-gray-600">
               Category: {clothe.category}
             </p>
+            <p className="text-xl lg:text-2xl font-medium text-gray-600">
+              Price: $ {clothe.price || "N/A"}
+            </p>
             <div className="flex justify-start items-center space-x-2 font-medium text-gray-600 text-xl lg:text-2xl">
               <p>Size: </p>
               {clothe.size?.length < 1 ? (

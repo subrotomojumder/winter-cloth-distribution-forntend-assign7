@@ -5,6 +5,7 @@ export const clotheFormSchema = z.object({
     message: "Title must be at least 5 characters.",
   }),
   size: z.array(z.string()).optional(),
+  price: z.string(),
   sizeInput: z.string().optional(),
   des: z.string().optional(),
   category: z.string(),
