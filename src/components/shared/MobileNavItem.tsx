@@ -5,6 +5,11 @@ import { MouseEvent } from "react";
 import { TNavItem } from "@/types/navbar.type";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
+import {
+  selectCurrentTheme,
+  toggleDarkTheme,
+} from "@/redux/features/theme/themeSlice";
+import { Moon, Sun } from "lucide-react";
 
 type TMobileNav = {
   isOpen: boolean;
@@ -16,6 +21,7 @@ const MobileNavItem = forwardRef<HTMLUListElement, TMobileNav>(
   ({ isOpen, handleOutsideClose, navItems }, containerRef) => {
     const dispatch = useAppDispatch();
     const user = useAppSelector(selectCurrentUser);
+    const darkTheme = useAppSelector(selectCurrentTheme);
     return (
       <div
         onClick={handleOutsideClose}
@@ -25,7 +31,7 @@ const MobileNavItem = forwardRef<HTMLUListElement, TMobileNav>(
       >
         <ul
           ref={containerRef}
-          className="flex flex-col text-end divide-y divide-gray-500 absolute right-6 top-14 bg-white py-2 px-4"
+          className="flex flex-col text-end divide-y divide-gray-500 absolute right-0 top-14 bg-white dark:bg-slate-600 py-2 px-4"
         >
           {navItems.map((item: TNavItem, i) => (
             <li
@@ -55,6 +61,15 @@ const MobileNavItem = forwardRef<HTMLUListElement, TMobileNav>(
                 Logout
               </button>
             )}
+          </li>
+          <li className="py-2">
+            <button
+              onClick={() => dispatch(toggleDarkTheme())}
+              className="py-1.5 w-full flex flex-nowrap justify-center space-x-2 border"
+            >
+             <span>  Mode</span>
+              {darkTheme ? <Sun /> : <Moon />}
+            </button>
           </li>
         </ul>
       </div>

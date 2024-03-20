@@ -32,7 +32,7 @@ const DashboardItem = ({
           className={`${subItemShow === name && "border-2 border-indigo-500"}`}
         >
           <Link to={link}>
-            <div className="font-semibold  flex items-center gap-3 p-2 hover:bg-gray-600 group">
+            <div className="font-semibold flex items-center gap-3 p-2 hover:bg-gray-400 group">
               <div>{createElement(icon, { size: "20" })}</div>
               <h2
                 style={{
@@ -47,9 +47,7 @@ const DashboardItem = ({
                 {name}
               </h2>
               <h2
-                className={`${
-                  !openDrawer ? "hidden md:block" : "block md:hidden"
-                }
+                className={`${!openDrawer ? "hidden md:block" : "hidden"}
                      absolute left-48 bg-gray-200 font-sans whitespace-pre z-30
                    text-gray-900 rounded-md drop-shadow-md px-0 py-0 w-0 overflow-hidden group-hover:px-2 
                     group-hover:py-1 group-hover:left-12 md:group-hover:left-14 group-hover:w-fit group-hover:duration-500`}
@@ -93,7 +91,7 @@ const DashboardItem = ({
               />
             )}
             <h2
-              className={`${!openDrawer ? "hidden md:block" : "block md:hidden"}
+              className={`${!openDrawer ? "hidden md:block" : "hidden"}
                      absolute left-48 bg-gray-200 font-sans whitespace-pre z-30
                    text-gray-900 rounded-md drop-shadow-md px-0 py-0 w-0 overflow-hidden group-hover:px-2 
                     group-hover:py-1 group-hover:left-12 md:group-hover:left-14 group-hover:w-fit group-hover:duration-500`}

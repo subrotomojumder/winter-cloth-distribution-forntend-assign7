@@ -21,7 +21,7 @@ const HeroSection = () => {
     },
   };
   return (
-    <div className=" bg-gray-100 pt-10 md:pt-14">
+    <div className=" bg-gray-100 dark:bg-slate-900 pt-10 md:pt-14">
       <Container className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 place-items-center py-16 md:py-20">
         <div className="p-8 space-y-5 text-center md:text-start lg:mr-2">
           <h1 className="text-2xl lg:text-4xl font-bold">

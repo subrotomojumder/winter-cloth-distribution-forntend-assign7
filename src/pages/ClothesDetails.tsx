@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import DonorTestimonials from "@/components/home/DonorTestimonials";
 import DonationConfirmationForm from "@/components/ui/DonationConfirmationForm";
 import ErrorComponent from "@/components/ui/ErrorComponent";
 import { LoadingPoints } from "@/components/ui/Loaders";
@@ -32,7 +33,7 @@ const ClothesDetails = () => {
   }
   const clothe = data?.data;
   return (
-    <Container className="min-h-screen">
+    <Container className="min-h-screen space-y-10 md:space-y-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-12 px-3 lg:px-8 py-8 lg:divide-x-2">
         <div className="px-5 bg-gray-50">
           <img src={clothe.image} alt="" className="max-h-[450px]" />
@@ -89,6 +90,7 @@ const ClothesDetails = () => {
           )}
         </div>
       </div>
+      <DonorTestimonials />
     </Container>
   );
 };

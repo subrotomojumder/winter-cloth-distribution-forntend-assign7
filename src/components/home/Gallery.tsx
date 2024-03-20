@@ -85,7 +85,7 @@ const Gallery = () => {
         <Slider {...settings} ref={slider1Ref}>
           {galleryData.map((item, i: number) => (
             <div key={i}>
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 lg:gap-10 bg-slate-100 rounded-lg">
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 lg:gap-10 bg-slate-100 dark:bg-slate-500 rounded-lg">
                 <div className="col-span-3 p-6">
                   <img src={item.img} alt="" className="rounded"/>
                 </div>

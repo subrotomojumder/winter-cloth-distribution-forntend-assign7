@@ -32,7 +32,7 @@ const DashboardWinterClothes = () => {
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl  text-blue-500 text-center">Clothe List</h2>
           <Link to={"/dashboard/create-winter-clothes"}>
-            <Button variant={"ghost"} className="bg-gray-100 text-sm">
+            <Button variant={"ghost"} className="bg-gray-100 dark:bg-slate-400 text-sm">
               Add Winter Clothe
             </Button>
           </Link>
@@ -42,7 +42,7 @@ const DashboardWinterClothes = () => {
         ) : isError ? (
           <ErrorComponent error={error} />
         ) : (
-          <Table className=" border rounded-md px-0">
+          <Table className=" border rounded-md px-0 ">
             <TableHeader>
               <TableRow>
                 <TableHead className=""></TableHead>

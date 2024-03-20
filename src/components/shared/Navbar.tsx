@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "../ui/button";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { AlignJustify } from "lucide-react";
+import { AlignJustify, Moon, Sun } from "lucide-react";
 import { MouseEvent, useRef, useState } from "react";
 import logo from "@/assets/images/winter-clothes-logo.png";
 import { cn } from "@/lib/utils";
@@ -11,10 +11,15 @@ import { authenticUserRoutes } from "@/routes/authenticUser.route";
 import { unAuthenticUserRoutes } from "@/routes/unAuthenticUser.route";
 import { TNavItem } from "@/types/navbar.type";
 import MobileNavItem from "./MobileNavItem";
+import {
+  selectCurrentTheme,
+  toggleDarkTheme,
+} from "@/redux/features/theme/themeSlice";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const dispatch = useAppDispatch();
+  const darkTheme = useAppSelector(selectCurrentTheme);
   const user = useAppSelector(selectCurrentUser);
   const { scrollYProgress } = useScroll();
   const [isOpen, setIsOpen] = useState(false);
@@ -46,6 +51,7 @@ const Navbar = () => {
       setScrolled(false);
     }
   });
+  console.log(darkTheme);
   return (
     <motion.header
       className={cn(
@@ -106,6 +112,11 @@ const Navbar = () => {
                 Logout
               </button>
             )}
+          </li>
+          <li>
+            <button onClick={() => dispatch(toggleDarkTheme())} className="py-1.5">
+              {darkTheme ? <Sun /> : <Moon />}
+            </button>
           </li>
         </ul>
       </nav>
