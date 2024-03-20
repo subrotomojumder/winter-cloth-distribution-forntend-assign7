@@ -51,7 +51,7 @@ const Navbar = () => {
       setScrolled(false);
     }
   });
-  console.log(darkTheme);
+  // console.log(darkTheme);
   return (
     <motion.header
       className={cn(

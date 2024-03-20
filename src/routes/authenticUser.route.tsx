@@ -8,6 +8,10 @@ export const authenticUserRoutes = [
     name: "Leaderboard",
   },
   {
+    link: "community",
+    name: "Gratitudes",
+  },
+  {
     link: "/dashboard",
     name: "Dashboard",
   },

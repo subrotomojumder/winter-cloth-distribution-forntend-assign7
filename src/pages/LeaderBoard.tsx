@@ -17,7 +17,7 @@ const LeaderBoard = () => {
   const { data, isLoading, isError, error } = useGetAllDonorQuery(undefined);
   return (
     <Container className="min-h-screen ">
-      <div className="mx-2 xl:mx-1">
+      <div className="mx-2 xl:mx-1 pt-4">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl  text-blue-500 text-center">
             Donation Leaderboard
@@ -40,9 +40,12 @@ const LeaderBoard = () => {
             <TableBody>
               {data.data?.map((user: TUser, inx: number) => (
                 <TableRow key={user._id}>
-                  <TableCell>{++inx}</TableCell>
                   <TableCell>
-                    <div className=" w-10 lg:w-16">
+                    {inx < 10 && 0}
+                    {++inx}
+                  </TableCell>
+                  <TableCell>
+                    <div className=" w-10 lg:w-14">
                       <img
                         src={user.image}
                         alt=""

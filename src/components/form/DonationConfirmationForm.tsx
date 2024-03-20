@@ -2,8 +2,8 @@
 import { TUser, selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { TClothe } from "@/types/clothes.type";
-import { LoadingPoints } from "./Loaders";
-import ErrorComponent from "./ErrorComponent";
+import { LoadingPoints } from "../ui/Loaders";
+import ErrorComponent from "../ui/ErrorComponent";
 import { useGetSingleUserQuery } from "@/redux/features/auth/authApi";
 import {
   Form,
@@ -12,8 +12,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "./form";
-import { Button } from "./button";
+} from "../ui/form";
+import { Button } from "../ui/button";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,10 +24,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./select";
+} from "../ui/select";
 import { useCreateDonationMutation } from "@/redux/features/donation/donationApi";
 import { toast } from "sonner";
-import { Input } from "./input";
+import { Input } from "../ui/input";
 const FormSchema = z.object({
   size: z.string().optional(),
   userImage: z.string(),
@@ -53,6 +53,7 @@ const DonationConfirmationForm = ({
         clotheTitle: clothe.title,
         userId: id,
         price: Number(clothe.price),
+        clotheImage: clothe.image,
         ...data,
       }).unwrap();
       navigate("/dashboard");
@@ -78,8 +79,10 @@ const DonationConfirmationForm = ({
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-full space-y-5 mt-2"
         >
-          <div className="font-semibold text-gray-600 grid grid-cols-3">
-            <span  className="text-sm text-gray-900">Clothe :</span>
+          <div className="font-semibold text-gray-700 dark:text-white  grid grid-cols-3">
+            <span className="text-sm text-gray-900 dark:text-white">
+              Clothe :
+            </span>
             <p className="col-span-2">{clothe.title}</p>
           </div>
           {clothe.size ? (
@@ -117,12 +120,16 @@ const DonationConfirmationForm = ({
           ) : (
             <></>
           )}
-          <div className="font-semibold text-gray-700 grid grid-cols-3">
-            <span className="text-sm text-gray-900">Donor :</span>
+          <div className="font-semibold text-gray-700 dark:text-white grid grid-cols-3">
+            <span className="text-sm text-gray-900 dark:text-white">
+              Donor :
+            </span>
             <p className="col-span-2">{name}</p>
           </div>
-          <div className="font-semibold text-gray-700 grid grid-cols-3">
-            <span className="text-sm text-gray-900">Email :</span>
+          <div className="font-semibold text-gray-700 dark:text-white grid grid-cols-3">
+            <span className="text-sm text-gray-900 dark:text-white">
+              Email :
+            </span>
             <p className="col-span-2">{email}</p>
           </div>
           <FormField
@@ -130,14 +137,14 @@ const DonationConfirmationForm = ({
             control={form.control}
             render={({ field }) => (
               <FormItem className="grid grid-cols-3 items-center gap-1">
-                <FormLabel >Your Image URL :</FormLabel>
+                <FormLabel>Your Image URL :</FormLabel>
                 <FormControl className="col-span-2">
                   <Input
                     placeholder="https://cdn.pixabay.com/photo/2015/rose-729509_640.jpg"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="font-normal -pb-4" />
+                <FormMessage className="font-normal col-span-3 -mb-3 text-end" />
               </FormItem>
             )}
           />

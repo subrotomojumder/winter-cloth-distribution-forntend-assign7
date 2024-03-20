@@ -1,6 +1,6 @@
 import Container from "@/components/Container";
 import DonorTestimonials from "@/components/home/DonorTestimonials";
-import DonationConfirmationForm from "@/components/ui/DonationConfirmationForm";
+import DonationConfirmationForm from "@/components/form/DonationConfirmationForm";
 import ErrorComponent from "@/components/ui/ErrorComponent";
 import { LoadingPoints } from "@/components/ui/Loaders";
 import { Badge } from "@/components/ui/badge";

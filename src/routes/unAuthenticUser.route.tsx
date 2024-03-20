@@ -7,5 +7,9 @@ export const unAuthenticUserRoutes = [
       link: "Leaderboard",
       name: "Leaderboard",
     },
+    {
+      link: "community",
+      name: "Gratitudes",
+    },
   ];
   

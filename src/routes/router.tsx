@@ -3,6 +3,7 @@ import PrivateRoute from "@/components/PrivateRoute";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import AllWinterClothes from "@/pages/AllWinterClothes";
 import ClothesDetails from "@/pages/ClothesDetails";
+import CommunityGratitude from "@/pages/CommunityGratitude";
 import Home from "@/pages/Home";
 import LeaderBoard from "@/pages/LeaderBoard";
 import Login from "@/pages/Login";
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "leaderboard",
         element: <LeaderBoard />,
+      },
+      {
+        path: "community",
+        element: <CommunityGratitude />,
       },
       {
         path: "winter-clothes",

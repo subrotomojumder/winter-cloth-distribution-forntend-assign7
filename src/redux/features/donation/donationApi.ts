@@ -24,10 +24,27 @@ const donationsApi = baseApi.injectEndpoints({
       }),
       providesTags: ["donations"],
     }),
+    addComments: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/comments/${id}`,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["comments"],
+    }),
+    getAllComments: builder.query({
+      query: () => ({
+        url: `/comments`,
+        method: "GET",
+      }),
+     providesTags: ["comments"],
+    }),
   }),
 });
 export const {
   useCreateDonationMutation,
   useGetAllDonationQuery,
   useGetAllDonorQuery,
+  useAddCommentsMutation,
+  useGetAllCommentsQuery
 } = donationsApi;
