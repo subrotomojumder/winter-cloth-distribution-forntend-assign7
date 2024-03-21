@@ -31,9 +31,11 @@ import { TVolunteer, volunteerFormSchema } from "@/types/users.type";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const VolunteerCreate = () => {
+  const navigate = useNavigate();
   const user = useAppSelector(selectCurrentUser);
   const {
     data: preUserData,
@@ -58,7 +60,7 @@ const VolunteerCreate = () => {
         id: toastId,
         duration: 2000,
       });
-      form.reset();
+      navigate("/about-us");
     } catch (error: any) {
       toast.error(error?.data?.message || "Something went wrong!", {
         id: toastId,
@@ -110,9 +112,16 @@ const VolunteerCreate = () => {
               onSubmit={form.handleSubmit(onSubmit)}
               className="w-full md:max-w-5xl px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8"
             >
-              <h2 className="text-2xl text-blue-500 text-center pb-2 col-span-2 uppercase">
-                Sign up for volunteer opportunities
-              </h2>
+              <div className="col-span-2">
+                <h2 className="text-2xl text-blue-500 text-center pb-2 uppercase">
+                  Sign up for volunteer opportunities
+                </h2>
+                <p className="font-thin mx-auto text-center mb-4">
+                  Transform lives with your donation. Join us in creating
+                  change. Every contribution matters.
+                </p>
+                <hr />
+              </div>
               <FormField
                 name="name"
                 control={form.control}

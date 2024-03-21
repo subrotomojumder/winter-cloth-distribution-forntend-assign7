@@ -12,9 +12,9 @@ export type TUser = {
 };
 
 export const testimonialFormSchema = z.object({
-  image: z.string().url({ message: "Provide a valid url !" }).optional(),
+  image: z.string().url({ message: "Provide a valid url !" }),
   location: z.string().min(3, "Your location is required!"),
-  testimonial: z.string({ required_error: "Testimonial is required!" }).min(10),
+  testimonial: z.string({ required_error: "Testimonial is required!" }).min(10, "Testimonial must contain at least 10 character(s)"),
 });
 export type TTestimonial = z.infer<typeof testimonialFormSchema>;
 

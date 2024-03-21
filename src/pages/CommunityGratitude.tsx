@@ -20,7 +20,6 @@ const CommunityGratitude = () => {
     error,
   } = useGetAllCommentsQuery(undefined);
   const { data: donationData } = useGetAllDonationQuery(undefined);
-  console.log(donationData);
   return (
     <div className="pt-8">
       <Container className="min-h-screen lg:grid grid-cols-12 gap-6 space-y-10 lg:space-y-0">

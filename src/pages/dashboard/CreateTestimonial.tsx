@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,24 +15,24 @@ import { Textarea } from "@/components/ui/textarea";
 import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { useAddTestimonialMutation } from "@/redux/features/donation/donationApi";
 import { useAppSelector } from "@/redux/hooks";
-import { TTestimonial, volunteerFormSchema } from "@/types/users.type";
+import { TTestimonial, testimonialFormSchema } from "@/types/users.type";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SendHorizontal } from "lucide-react";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 const CreateTestimonial = () => {
   const user = useAppSelector(selectCurrentUser);
   const [createTestimonial, { isLoading }] = useAddTestimonialMutation();
   const form = useForm<TTestimonial>({
-    resolver: zodResolver(volunteerFormSchema),
+    resolver: zodResolver(testimonialFormSchema),
     defaultValues: {
       image: "",
       location: "",
       testimonial: "",
     },
   });
-  const onSubmit = async (values: TTestimonial) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (values) => {
     const toastId = toast.loading("loading....");
     const testimonialData = { id: user?.id, body: values };
     try {
@@ -106,10 +107,10 @@ const CreateTestimonial = () => {
             />
             <div className="text-center pt-3">
               <Button
-                disabled={isLoading}
                 type="submit"
                 variant={"secondary"}
-                className="gap-2 w-full"
+                disabled={isLoading}
+                className="gap-2 w-full disabled:cursor-not-allowed"
               >
                 Submit <SendHorizontal size={18} />
               </Button>
