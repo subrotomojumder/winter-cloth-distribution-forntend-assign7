@@ -1,10 +1,10 @@
 # Distribution of Winter Clothes
 
-### Frontend Live Link : [https://aesthetic-gecko-fdb9e9.netlify.app/](https://aesthetic-gecko-fdb9e9.netlify.app/)
+### Frontend Live Link : [https://dancing-meringue-26c9c0.netlify.app](https://dancing-meringue-26c9c0.netlify.app)
 
-### Live Server Link : [https://winter-clothes-server-assin6.vercel.app](https://winter-clothes-server-assin6.vercel.app)
+### Live Server Link : [https://winter-clothe-distribution-ass7.vercel.app](https://winter-clothe-distribution-ass7.vercel.app)
 
-### Page Explanations Video : [https://youtu.be/CgxzC35u-vY](https://youtu.be/CgxzC35u-vY)
+### Page Explanations Video : [https://youtu.be/zVLMcGVwG9o](https://youtu.be/zVLMcGVwG9o)
 
 ### Features
 
