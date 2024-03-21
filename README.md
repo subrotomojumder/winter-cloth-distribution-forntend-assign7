@@ -8,7 +8,7 @@
 
 ### Features
 
-- Winter clothes can be distributed among the poor through this site. Anyone can donate . Any warm clothes can be added, edited and deleted here
+- Winter clothes can be distributed among the poor through this site. Anyone can donate . Any warm clothes can be added, edited and deleted here. From here you can work as a volunteer.
 
 ### Used technology
 
