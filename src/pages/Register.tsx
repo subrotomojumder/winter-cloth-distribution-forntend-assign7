@@ -17,7 +17,7 @@ import { useRegisterMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 
 const loginSchema = z.object({
-  name: z.string(),
+  name: z.string().min(1, "Name is Required!"),
   email: z.string().email(),
   password: z.string().min(6, "Invalid Password !"),
 });
@@ -51,7 +51,7 @@ const Register = () => {
     }
   };
   return (
-    <div className="w-full min-h-screen flex justify-center items-center">
+    <div className="w-full min-h-screen flex justify-center items-center py-8">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}

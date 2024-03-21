@@ -23,7 +23,7 @@ const CommunityGratitude = () => {
   console.log(donationData);
   return (
     <div className="pt-8">
-      <Container className="min-h-screen lg:grid grid-cols-12 gap-6 space-y-10">
+      <Container className="min-h-screen lg:grid grid-cols-12 gap-6 space-y-10 lg:space-y-0">
         <div className="col-span-9">
           <img
             src="https://thejoinhands.org/images/resource/clothes_blanket2.jpg"
@@ -152,38 +152,40 @@ const CommunityGratitude = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-3">
-          <h3 className="text-lg font-semibold underline underline-offset-8 px-2">
-            Recent Donations :
-          </h3>
-          <div className="mt-4 space-y-2 divide-y-2">
-            {donationData?.data?.slice(0, 5).map((donation: any) => (
-              <div
-                key={donation._id}
-                className="bg-white dark: px-2 pt-2 pb-1 space-y-2 hover:bg-gray-100 cursor-pointer"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="">
-                    <img
-                      src={
-                        donation.clotheImage ||
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVA_HrQLjkHiJ2Ag5RGuwbFeDKRLfldnDasw&usqp=CAU"
-                      }
-                      alt=""
-                      className={cn("object-cover w-14 h-14 rounded")}
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-700">
-                      {donation.clotheTitle}
-                    </h3>
-                    <p className=" text-slate-400 text-sm">
-                      {new Date(donation.date).toDateString()}
-                    </p>
+        <div className="col-span-3 relative">
+          <div className="  sticky top-20 right-0">
+            <h3 className="text-lg font-semibold underline underline-offset-8 px-2">
+              Recent Donations :
+            </h3>
+            <div className="mt-4 space-y-2 divide-y-2">
+              {donationData?.data?.slice(0, 5).map((donation: any) => (
+                <div
+                  key={donation._id}
+                  className="bg-white dark: px-2 pt-2 pb-1 space-y-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="">
+                      <img
+                        src={
+                          donation.clotheImage ||
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVA_HrQLjkHiJ2Ag5RGuwbFeDKRLfldnDasw&usqp=CAU"
+                        }
+                        alt=""
+                        className={cn("object-cover w-14 h-14 rounded")}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-700">
+                        {donation.clotheTitle}
+                      </h3>
+                      <p className=" text-slate-400 text-sm">
+                        {new Date(donation.date).toDateString()}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </Container>

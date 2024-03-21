@@ -30,7 +30,7 @@ import { toast } from "sonner";
 import { Input } from "../ui/input";
 const FormSchema = z.object({
   size: z.string().optional(),
-  userImage: z.string(),
+  userImage: z.string().url({ message: "Provide a valid url !" }),
 });
 const DonationConfirmationForm = ({
   clothe,

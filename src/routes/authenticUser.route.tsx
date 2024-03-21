@@ -12,6 +12,14 @@ export const authenticUserRoutes = [
     name: "Gratitudes",
   },
   {
+    link: "volunteer",
+    name: "Volunteer",
+  },
+  {
+    link: "about-us",
+    name: "About-us",
+  },
+  {
     link: "/dashboard",
     name: "Dashboard",
   },

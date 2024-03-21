@@ -4,6 +4,7 @@ import {
   Home,
   LayoutDashboard,
   LayoutList,
+  MessageSquarePlus,
   Moon,
   Sun,
 } from "lucide-react";
@@ -36,6 +37,11 @@ const sidebarItems = [
     name: "All Winter Clothes",
     link: `winter-clothes`,
     icon: LayoutList,
+  },
+  {
+    name: "Create Testimonial",
+    link: `create-testimonial`,
+    icon: MessageSquarePlus,
   },
 ];
 const Sidebar = ({
@@ -100,7 +106,7 @@ const Sidebar = ({
                   "block md:hidden": !openDrawer,
                 })}
               >
-              Toggle Theme
+                Toggle Theme
               </span>
             </button>
           </div>

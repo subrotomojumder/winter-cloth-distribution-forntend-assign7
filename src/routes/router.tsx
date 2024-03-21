@@ -1,6 +1,7 @@
 import App from "@/App";
 import PrivateRoute from "@/components/PrivateRoute";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
+import AboutUs from "@/pages/AboutUs";
 import AllWinterClothes from "@/pages/AllWinterClothes";
 import ClothesDetails from "@/pages/ClothesDetails";
 import CommunityGratitude from "@/pages/CommunityGratitude";
@@ -8,6 +9,8 @@ import Home from "@/pages/Home";
 import LeaderBoard from "@/pages/LeaderBoard";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
+import VolunteerCreate from "@/pages/VolunteerCreate";
+import CreateTestimonial from "@/pages/dashboard/CreateTestimonial";
 import CreateWinterClothes from "@/pages/dashboard/CreateWinterClothes";
 import Dashboard from "@/pages/dashboard/Dashboard";
 import DashboardWinterClothes from "@/pages/dashboard/DashboardWinterClothes";
@@ -33,6 +36,14 @@ const router = createBrowserRouter([
       {
         path: "community",
         element: <CommunityGratitude />,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "volunteer",
+        element: <VolunteerCreate />,
       },
       {
         path: "winter-clothes",
@@ -63,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: "create-winter-clothes",
         element: <CreateWinterClothes />,
+      },
+      {
+        path: "create-testimonial",
+        element: <CreateTestimonial />,
       },
     ],
   },

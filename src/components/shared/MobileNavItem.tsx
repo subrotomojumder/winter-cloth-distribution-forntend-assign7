@@ -25,7 +25,7 @@ const MobileNavItem = forwardRef<HTMLUListElement, TMobileNav>(
     return (
       <div
         onClick={handleOutsideClose}
-        className={cn(" md:hidden fixed inset-0 bg-gray-900/50 invisible ", {
+        className={cn(" lg:hidden fixed inset-0 bg-gray-900/50 invisible ", {
           visible: isOpen,
         })}
       >

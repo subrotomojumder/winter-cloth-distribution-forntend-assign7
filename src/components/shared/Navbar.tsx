@@ -74,7 +74,7 @@ const Navbar = () => {
         <Button
           onClick={() => setIsOpen((c) => !c)}
           variant={"ghost"}
-          className=" md:hidden rounded-[2px] hover:bg-[#f1f3f529] px-2 text-white hover:text-white"
+          className=" lg:hidden rounded-[2px] hover:bg-[#f1f3f529] px-2 text-white hover:text-white z-10"
         >
           <AlignJustify className="shrink-0 size-[22px] sm:size-6" />
         </Button>
@@ -86,7 +86,7 @@ const Navbar = () => {
           ref={containerRef}
         />
         {/* large device */}
-        <ul className="hidden md:flex justify-end space-x-3 xl:space-x-4 text-white">
+        <ul className="hidden lg:flex justify-end space-x-3 xl:space-x-4 text-white">
           {navItems.map((item: TNavItem, i) => (
             <motion.li
               variants={itemVariants}
